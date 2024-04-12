@@ -27,3 +27,18 @@ fetch("https://api.coingecko.com/api/v3/coins/catecoin") // initiates a GET requ
     }
     return res.json() // 'res.json()' returns a promise that resolves with the JSON data parsed from the response body text
 })
+
+// Step 4: retrieves and displays basic information about the "Catecoin" cryptocurrency
+.then(data => {
+    document.getElementById("crypto-top").innerHTML = `
+        <img src=${data.image.small} />
+        <span>${data.name}</span>
+    ` // sets the content of an HTML element with the ID "crypto-top" to include an image of the cryptocurrency's logo and its name.
+    document.getElementById("crypto").innerHTML += `
+        <p>🎯: $${data.market_data.current_price.usd}</p>
+        <p>📈: $${data.market_data.high_24h.usd}</p>
+        <p>📉: $${data.market_data.low_24h.usd}</p>
+    `
+    /* appends new paragraphs to the content of an HTML element with the ID "crypto", displaying key market information about the 
+    cryptocurrency, including its current price, 24-hour high, and 24-hour low, each preceded by an emoji symbol.*/
+})
