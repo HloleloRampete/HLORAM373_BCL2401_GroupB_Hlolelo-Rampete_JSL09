@@ -2,7 +2,7 @@
 and displays the name of the photographer */
 
 // Fetch a random landscape image from Unsplash API for the background
-fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=,skateboarding")
+fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=,earth")
 // query parameters to specify that the photo should have a landscape orientation and should contain the keyword
 .then(res => res.json()) // 'fetch' returns a Promise that resolves to the 'Response' object representing the response to the request.
 .then(data => { // takes the JSON data returned by the previous step as an argument (referred to as data)
@@ -39,9 +39,9 @@ fetch("https://api.coingecko.com/api/v3/coins/catecoin") // initiates a GET requ
         <span>${data.name}</span>
     `; // sets the content of an HTML element with the ID "crypto-top" to include an image of the cryptocurrency's logo and its name.
     document.getElementById("crypto").innerHTML += `
-        <p>🎯: $${data.market_data.current_price.usd}</p>
-        <p>📈: $${data.market_data.high_24h.usd}</p>
-        <p>📉: $${data.market_data.low_24h.usd}</p>
+        <p>Target🎯: R${data.market_data.current_price.zar}</p>
+        <p>Profits📈: R${data.market_data.high_24h.zar}</p>
+        <p>Losses📉: R${data.market_data.low_24h.zar}</p>
     `;
     /* appends new paragraphs to the content of an HTML element with the ID "crypto", displaying key market information about the
     cryptocurrency, including its current price, 24-hour high, and 24-hour low, each preceded by an emoji symbol.*/
@@ -57,7 +57,8 @@ function getCurrentTime() {
 
 setInterval(getCurrentTime, 1000); // Call getCurrentTime() function every second using setInterval
 
-// Fetch weather data based on user's location from OpenWeatherMap API
+
+// Step 6: Fetch weather data based on user's location from OpenWeatherMap API
 navigator.geolocation.getCurrentPosition(position => {
 fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`) //changed the SI units from imperial to metric.
     .then(res => {
