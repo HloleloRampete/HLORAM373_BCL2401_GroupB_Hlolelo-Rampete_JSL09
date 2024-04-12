@@ -42,3 +42,10 @@ fetch("https://api.coingecko.com/api/v3/coins/catecoin") // initiates a GET requ
     /* appends new paragraphs to the content of an HTML element with the ID "crypto", displaying key market information about the 
     cryptocurrency, including its current price, 24-hour high, and 24-hour low, each preceded by an emoji symbol.*/
 })
+
+// Step 5: updates the content of the specified HTML element to display the current time in a short format
+function getCurrentTime() {
+    const date = new Date() // This creates a new JavaScript Date object representing the current date and time.
+    document.getElementById("time").textContent = date.toLocaleTimeString("en-us", {timeStyle: "short"})
+    // This converts the date object (date) to a string representing the time portion only
+}
