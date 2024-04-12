@@ -37,7 +37,7 @@ fetch("https://api.coingecko.com/api/v3/coins/catecoin") // initiates a GET requ
     document.getElementById("crypto-header").innerHTML = `
         <img src=${data.image.small} />
         <span>${data.name}</span>
-    `; // sets the content of an HTML element with the ID "crypto-top" to include an image of the cryptocurrency's logo and its name.
+    `; // sets the content of an HTML element with the ID "crypto-header" to include an image of the cryptocurrency's logo and its name.
     document.getElementById("crypto").innerHTML += `
         <p>Target🎯: R${data.market_data.current_price.zar}</p>
         <p>Profits📈: R${data.market_data.high_24h.zar}</p>
